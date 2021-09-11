@@ -19,6 +19,7 @@ template <class T> class fenwick_tree {
         explicit fenwick_tree(int n) : _n(n), data(n) {}
 
         void add(int p, T x){
+            // p: 0-index
             assert(0 <= p && p < _n) // アクセスが不正な場合と範囲外アクセス
             p++;
             while(p <= _n){
@@ -28,6 +29,7 @@ template <class T> class fenwick_tree {
         }
 
         T sum(int l, int r){
+            // [l,r): 0-index
             assert(0 <= l && l <= r && r <= n);
             return sum(r) - sum(l);
         }
